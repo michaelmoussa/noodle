@@ -1,0 +1,10 @@
+{
+  "plugins": {
+    "remark-lint": {
+      "maximum-line-length": 120
+    }
+  },
+  "settings": {
+    "commonmark": true
+  }
+}

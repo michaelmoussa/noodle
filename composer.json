@@ -1,0 +1,36 @@
+{
+    "name": "michaelmoussa/noodle",
+    "description": "A finite state machine written in PHP",
+    "type": "library",
+    "homepage": "https://github.com/michaelmoussa/noodle",
+    "keywords": [
+        "statemachine",
+        "state machine",
+        "finite",
+        "fsm"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael Moussa",
+            "email": "michael.moussa@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "league/event": "^2.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.2",
+        "squizlabs/php_codesniffer": "dev-master as 3.0",
+        "michaelmoussa/php-coverage-checker": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Noodle\\": [
+                "src/",
+                "test/"
+            ]
+        }
+    }
+}

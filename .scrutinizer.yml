@@ -1,0 +1,26 @@
+build:
+  cache:
+    directories:
+      - vendor/
+
+  environment:
+    php:
+      version: 7.0.0
+
+checks:
+  php: true
+
+filter:
+  paths:
+    - src/*
+
+tools:
+  external_code_coverage: true
+
+  php_analyzer:
+    enabled: true
+    filter:
+      paths:
+        - src/
+
+  sensiolabs_security_checker: true
