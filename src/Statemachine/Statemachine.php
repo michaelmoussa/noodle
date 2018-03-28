@@ -68,9 +68,12 @@ final class Statemachine implements EventfulStatemachine
     /**
      * {@inheritdoc}
      */
-    public function trigger(Input $input, Stateful $object)
+    public function trigger(Input $input, Stateful $object, Context $context = null)
     {
-        $context = new Context();
+        if (is_null($context)) {
+            $context = new Context();
+        }
+
         $nextState = $this->stateTransitionTable->resolve($object->getCurrentState(), $input);
 
         $this->emitEvents($input, $object, $context, $nextState);

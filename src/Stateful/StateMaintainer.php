@@ -63,6 +63,5 @@ trait StateMaintainer
         if (!$this->hasCurrentState()) {
             throw new StateNotSet(sprintf('%s has no current state', __CLASS__));
         }
-
     }
 }
