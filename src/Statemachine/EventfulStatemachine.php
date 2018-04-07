@@ -66,5 +66,5 @@ interface EventfulStatemachine
      *
      * @return void
      */
-    public function trigger(Input $input, Stateful $object, Context $context);
+    public function trigger(Input $input, Stateful $object, Context $context = null);
 }
