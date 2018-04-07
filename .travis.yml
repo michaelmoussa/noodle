@@ -22,7 +22,7 @@ install:
   - cp ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini.bak
 
   - composer install --prefer-dist --no-interaction
-  - npm install remark remark-lint
+  - npm install remark remark-lint remark-preset-lint-recommended
 
 script:
   - # Restore xdebug to gather code coverage
@@ -31,7 +31,7 @@ script:
   - vendor/bin/phpunit
   - vendor/bin/php-coverage-checker build/coverage-clover.xml 100
   - vendor/bin/phpcs --standard=PSR2 ./src ./test
-  - node_modules/remark/bin/remark --no-stdout CHANGELOG.md CONTRIBUTING.md README.md
+  - node_modules/remark-cli/cli.js -u present-lint-recommended *.md
 
   - wget https://scrutinizer-ci.com/ocular.phar
   - php ocular.phar code-coverage:upload --format=php-clover build/coverage-clover.xml
