@@ -4,6 +4,7 @@ declare (strict_types = 1);
 
 namespace Noodle\Statemachine;
 
+use ArrayObject as Context;
 use League\Event\Emitter;
 use League\Event\ListenerInterface as Listener;
 use Noodle\State\State;
@@ -61,8 +62,9 @@ interface EventfulStatemachine
      *
      * @param Input $input
      * @param Stateful $object
+     * @param Context $context
      *
      * @return void
      */
-    public function trigger(Input $input, Stateful $object);
+    public function trigger(Input $input, Stateful $object, Context $context);
 }

@@ -103,6 +103,20 @@ class StatemachineTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(FlyweightState::named('BLACKS_TURN'), $object->getCurrentState());
     }
 
+    public function testTriggerAcceptsOptionalContextParameter()
+    {
+        $object = new StatefulObject();
+        $object->setCurrentState(FlyweightState::named('WHITES_TURN'));
+
+        $context = new Context(['foo' => 'bar']);
+
+        $statemachine = new Statemachine(new ChessMatchTransitionTable());
+        $eventRecorder = $this->addRecordingEvents($statemachine, 'before');
+        $statemachine->trigger(FlyweightInput::named('WHITE_MOVES'), $object, $context);
+
+        $this->assertSame($context, $eventRecorder->context);
+    }
+
     public function testReportsFailureIfTransitionFailsDueToInvalidTransition()
     {
         $this->expectException(InvalidInputForState::class);
